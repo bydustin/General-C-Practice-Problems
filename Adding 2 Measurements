@@ -1,0 +1,36 @@
+/*Take two distances (in the inch-feet system), add them and display the result on the screen.*/
+/*Skill Focus: Structs*/
+
+#include <stdio.h>
+
+struct Distance {
+    int feet;
+    float inch;
+} d1, d2, result;
+
+
+int main()
+{
+    printf("Enter Measurement 1: \n");
+    printf("Enter Feet: ");
+    scanf("%d", &d1.feet);
+    printf("Enter Inches: ");
+    scanf("%f", &d1.inch);
+    
+    printf("Enter Measurement 2: \n");
+    printf("Enter Feet: ");
+    scanf("%d", &d2.feet);
+    printf("Enter Inches: ");
+    scanf("%f", &d2.inch);
+    
+    result.feet = d1.feet + d2.feet;
+    result.inch = d1.inch + d2.inch;
+    
+    while (result.inch > 12) {
+        result.feet++;
+        result.inch -= 12;
+    }
+    
+    printf("Result: %d'-%.1f\"", result.feet, result.inch);
+    return 0;
+}
